@@ -76,6 +76,12 @@ band_long_both <- band_long_both %>%
     )
   )
 
+# different order for facet_wrap
+band_long_both <- band_long_both |>
+  mutate(across(band_name, ~factor(., levels=c("CCI","CIre","EVI", "NDMI", "NDVI",
+                                               "BLUE", "GREEN", "RED", "RED-EDGE-1", "RED-EDGE-2",
+                                               "RED-EDGE-3", "NIR", "SWIR-1", "SWIR-2"))))
+
 
 
 pv <- ggplot(band_long_both, aes(x = Veg_period, y = band_value, group = Veg_period)) +

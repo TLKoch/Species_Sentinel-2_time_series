@@ -61,7 +61,11 @@ name_mapping <- c(
 band_long$band_name <- stringr::str_replace_all(band_long$band_name, name_mapping)
 band_long$date <- as.Date(substr(band_long$name_date, 5, 14), format = "%Y.%m.%d")
 
-
+# different order for facet_wrap
+band_long <- band_long |>
+  mutate(across(band_name, ~factor(., levels=c("CCI","CIre","EVI", "NDMI", "NDVI",
+                                               "BLUE", "GREEN", "RED", "RED-EDGE-1", "RED-EDGE-2",
+                                               "RED-EDGE-3", "NIR", "SWIR-1", "SWIR-2"))))
 
 Sys.setlocale(category = "LC_TIME", locale="eng")
 p <- ggplot(band_long, aes(x = date, y = band_value, group = species, col = species)) + 

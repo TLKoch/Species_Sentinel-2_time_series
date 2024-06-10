@@ -105,8 +105,13 @@ for (i in 1: length(inter_mean_diff)){
   }
 }
 
+# different order for facet_wrap
+df_all <- df_all |>
+  mutate(across(band_name, ~factor(., levels=c("CCI","CIre","EVI", "NDMI", "NDVI",
+                                               "BLUE", "GREEN", "RED", "RED-EDGE-1", "RED-EDGE-2",
+                                               "RED-EDGE-3", "NIR", "SWIR-1", "SWIR-2"))))
 
-p <-ggplot(df_all, aes(x = Date)) +
+p <- ggplot(df_all, aes(x = Date)) +
   geom_line(aes(y = Interspecific_mean_sd_diff, color = "interspecific variability"), linewidth = 1.2) +
   geom_line(aes(y = Intraspecific, color = "intraspecific variability"), linewidth = 1.2) +
   stat_difference(aes(ymin = Interspecific_mean_sd_diff, ymax = Intraspecific), alpha = 0.3) +
@@ -181,7 +186,14 @@ for (i in 1: length(inter_mean_diff)){
   }
 }
 
-p <-ggplot(df_all, aes(x = Date)) +
+# different order for facet_wrap
+df_all <- df_all |>
+  mutate(across(band_name, ~factor(., levels=c("CCI","CIre","EVI", "NDMI", "NDVI",
+                                               "BLUE", "GREEN", "RED", "RED-EDGE-1", "RED-EDGE-2",
+                                               "RED-EDGE-3", "NIR", "SWIR-1", "SWIR-2"))))
+
+
+p <- ggplot(df_all, aes(x = Date)) +
   geom_line(aes(y = Interspecific_mean_sd_diff, color = "interspecific variability"), linewidth = 1.2) +
   geom_line(aes(y = Intraspecific, color = "intraspecific variability"), linewidth = 1.2) +
   stat_difference(aes(ymin = Interspecific_mean_sd_diff, ymax = Intraspecific), alpha = 0.3) +

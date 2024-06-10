@@ -133,20 +133,23 @@ png(
   res = 900
 )
 par(mfrow=c(3,5))
-generate_corrplot(1)
-generate_corrplot(2)
-generate_corrplot(3)
-generate_corrplot(4)
-generate_corrplot(5)
-generate_corrplot(6)
-generate_corrplot(7)
-generate_corrplot(8)
-generate_corrplot(9)
-generate_corrplot(10)
-generate_corrplot(11)
-generate_corrplot(12)
-generate_corrplot(13)
-generate_corrplot(14)
+generate_corrplot(2) # CCI
+generate_corrplot(3) # CIre
+generate_corrplot(4) # EVI
+generate_corrplot(6) # NDMI
+generate_corrplot(7) # NDVI
+
+generate_corrplot(1) # BLUE
+generate_corrplot(5) # GREEN
+generate_corrplot(12) # RED
+generate_corrplot(9) # RE-1
+generate_corrplot(10) # RE-2
+
+
+generate_corrplot(11) # RE-3
+generate_corrplot(8) # NIR
+generate_corrplot(13) # SWIR-1
+generate_corrplot(14) # SWIR-2
 dev.off()
 
 
@@ -310,18 +313,21 @@ png(
 
 
 par(mfrow=c(3,5))
-generate_corrplot(1)
-generate_corrplot(2)
-generate_corrplot(3)
-generate_corrplot(4)
-generate_corrplot(5)
-generate_corrplot(6)
-generate_corrplot(7)
-generate_corrplot(8)
-generate_corrplot(9)
-generate_corrplot(10)
-generate_corrplot(11)
-generate_corrplot(12)
-generate_corrplot(13)
-generate_corrplot(14)
+generate_corrplot(2) # CCI
+generate_corrplot(3) # CIre
+generate_corrplot(4) # EVI
+generate_corrplot(6) # NDMI
+generate_corrplot(7) # NDVI
+
+generate_corrplot(1) # BLUE
+generate_corrplot(5) # GREEN
+generate_corrplot(12) # RED
+generate_corrplot(9) # RE-1
+generate_corrplot(10) # RE-2
+
+
+generate_corrplot(11) # RE-3
+generate_corrplot(8) # NIR
+generate_corrplot(13) # SWIR-1
+generate_corrplot(14) # SWIR-2
 dev.off()

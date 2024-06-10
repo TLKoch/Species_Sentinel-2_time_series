@@ -92,7 +92,11 @@ for (i in 1: length(scaled_list)){
     df_all <- rbind(df_all, band_long)
   }
 }
-
+# different order for facet_wrap
+df_all <- df_all |>
+  mutate(across(band_name, ~factor(., levels=c("CCI","CIre","EVI", "NDMI", "NDVI",
+                                               "BLUE", "GREEN", "RED", "RED-EDGE-1", "RED-EDGE-2",
+                                               "RED-EDGE-3", "NIR", "SWIR-1", "SWIR-2"))))
 
 Sys.setlocale(category = "LC_TIME", locale="eng")
 p <- ggplot(df_all, aes(x = date, y = band_value_norm, group = species, col = species)) + 
@@ -126,6 +130,11 @@ ggsave(paste0("00_documentation/figures/curve_lines/norm_", "2020_facet_all_band
 
 ########################
 ### Different line types
+# different order for facet_wrap
+df_all <- df_all |>
+  mutate(across(band_name, ~factor(., levels=c("CCI","CIre","EVI", "NDMI", "NDVI",
+                                               "BLUE", "GREEN", "RED", "RED-EDGE-1", "RED-EDGE-2",
+                                               "RED-EDGE-3", "NIR", "SWIR-1", "SWIR-2"))))
 
 df_all <- df_all %>%
   mutate(type = case_when(
@@ -243,6 +252,11 @@ for (i in 1: length(scaled_list)){
   }
 }
 
+# different order for facet_wrap
+df_all <- df_all |>
+  mutate(across(band_name, ~factor(., levels=c("CCI","CIre","EVI", "NDMI", "NDVI",
+                                               "BLUE", "GREEN", "RED", "RED-EDGE-1", "RED-EDGE-2",
+                                               "RED-EDGE-3", "NIR", "SWIR-1", "SWIR-2"))))
 
 df_all <- df_all %>%
   mutate(type = case_when(
